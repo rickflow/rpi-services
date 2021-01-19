@@ -24,15 +24,3 @@ services:
       - ../ssl/private/:/etc/ssl/private
     depends_on:
       - app
-
-  # web:
-  #   image: nginx
-  #   restart: always
-  #   ports:
-  #     - 8080:80
-  #     - 3000:443
-  #   volumes:
-  #     - ./container/html:/var/www/html
-  #     - ./nginx.conf:/etc/nginx/nginx.conf:ro
-  #     - ../ssl/certs/:/etc/ssl/certs
-  #     - ../ssl/private/:/etc/ssl/private
