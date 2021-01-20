@@ -5,7 +5,6 @@ services:
     build: .
     restart: always
     volumes:
-      - "${TRILIUM_NODE_MODULES_DIR}:/root/trilium/node_modules"
       - "${TRILIUM_DATA_DIR}:/root/trilium-data"
     ports:
       - 8088:80
