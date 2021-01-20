@@ -5,12 +5,12 @@ services:
     image: nextcloud:fpm
     restart: always
     volumes:
-      - ./container/html:/var/www/html
-      - ./container/apps:/var/www/html/custom_apps
-      - ./container/config:/var/www/html/config
-      - ./container/data:/var/www/html/data
+      - "${NEXTCLOUD_HTML}:/var/www/html"
+      - "${NEXTCLOUD_APPS}:/var/www/html/custom_apps"
+      - "${NEXTCLOUD_CONFIG}:/var/www/html/config"
+      - "${NEXTCLOUD_DATA}:/var/www/html/data"
     environment:
-      - NEXTCLOUD_TRUSTED_DOMAINS=192.168.0.18:3000
+      - "NEXTCLOUD_TRUSTED_DOMAINS=${NEXTCLOUD_DOMAIN}"
 
   web:
     build: ./nginx
@@ -19,7 +19,7 @@ services:
       - 8080:80
       - 3000:443
     volumes:
-      - ./container/html:/var/www/html
+      - "${NEXTCLOUD_HTML}:/var/www/html"
       - ../ssl/certs/:/etc/ssl/certs
       - ../ssl/private/:/etc/ssl/private
     depends_on:
