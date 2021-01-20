@@ -4,6 +4,8 @@ services:
   server:
     build: .
     restart: always
+    volumes:
+      - ./container/node_modules:/root/trilium/node_modules
     ports:
       - 8088:80
       - 3003:443
