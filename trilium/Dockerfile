@@ -8,6 +8,6 @@ COPY --from=builder /tmp/trilium /root/trilium
 WORKDIR /root/trilium
 RUN npm install
 ENV TRILIUM_PORT "80"
-RUN npm run start-server
+CMD ["/usr/local/bin/npm", "run", "start-server"]
 # DEBUG:
 # CMD tail -f /dev/null
