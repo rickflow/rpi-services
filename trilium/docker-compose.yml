@@ -9,3 +9,5 @@ services:
     ports:
       - 8088:80
       - 3003:443
+    environment:
+      - TZ=America/Mexico_City
