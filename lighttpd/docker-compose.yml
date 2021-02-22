@@ -4,6 +4,8 @@ services:
   server:
     build: .
     restart: always
+    volumes:
+      - "${PUBLIC_HTML_LIGHTTPD}:/var/www/app"
     ports:
       - 8081:80
     environment:
